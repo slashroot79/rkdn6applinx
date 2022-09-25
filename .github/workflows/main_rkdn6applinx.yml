@@ -46,8 +46,9 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: .net-app
-          run: ls -la
-          run: pwd
+      - name: Current artifact to be deployed
+      - run: ls -la
+      - run: pwd
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -56,6 +57,4 @@ jobs:
           app-name: 'rkdn6applinx'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_18D350BE951941D5896477922ED4F620 }}
-          run: ls -la
-          run: pwd
           package: .
