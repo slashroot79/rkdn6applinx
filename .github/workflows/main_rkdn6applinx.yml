@@ -46,10 +46,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: .net-app
-          
+
       - name: Current artifact to be deployed
-        run: ls -la
-        run: pwd
+        run: |
+          ls -la
+          pwd
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
